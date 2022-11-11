@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 namespace App\Controller;
+use Cake\Event\Event;
 
 /**
  * Users Controller
@@ -11,6 +12,23 @@ namespace App\Controller;
  */
 class UsersController extends AppController
 {
+
+
+
+    public function login(){
+
+        if ($this->request->is('post')){
+            $user = $this->Auth->identify();
+          //  var_dump($user); exit();
+            if ($user){
+                $this->Auth->setUser($user);
+                return $this->redirect(['action'=>'index']);
+            } else{
+                $this->Flash->error("Invalid username or password",['key'=>'auth']);
+            }
+        }
+    }
+
     /**
      * Index method
      *

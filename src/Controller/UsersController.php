@@ -17,6 +17,11 @@ class UsersController extends AppController
 
     public function login(){
 
+
+        if ($this->Auth->user()) {
+            return $this->redirect($this->Auth->redirectUrl());
+        }
+
         if ($this->request->is('post')){
             $user = $this->Auth->identify();
           //  var_dump($user); exit();
@@ -24,9 +29,14 @@ class UsersController extends AppController
                 $this->Auth->setUser($user);
                 return $this->redirect(['action'=>'index']);
             } else{
-                $this->Flash->error("Invalid username or password",['key'=>'auth']);
+                $this->Flash->error("Invalid username or password");
             }
         }
+    }
+
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
     }
 
     /**

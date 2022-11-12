@@ -6,7 +6,15 @@
 ?>
 <div class="users index content">
 
-    <h2>Welcome <?php echo $user['username'];  ?></h2>
+    <h2>Welcome <?php
+        echo $user['username']; ?>
+        <?php echo $this->Html->link('Logout', '/users/logout'); ?>
+
+
+
+    </h2>
+
+<!--    <a href="--><?php //echo $this->Html->link('Logout', '/users/logout'); ?><!--">Logout</a>-->
 
     <?= $this->Html->link(__('New User'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Users') ?></h3>

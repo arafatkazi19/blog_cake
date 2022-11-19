@@ -46,7 +46,7 @@ class AppController extends Controller
 
         $this->loadComponent('Auth');
 
-       // $this->Auth->allow(['login','add','index']);
+        $this->Auth->allow('index');
 
         $this->set('user',$this->Auth->user());
 

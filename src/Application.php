@@ -27,6 +27,7 @@ use Cake\Http\MiddlewareQueue;
 use Cake\ORM\Locator\TableLocator;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
+use Cake\Http\Middleware\EncryptedCookieMiddleware;
 
 /**
  * Application setup class.
@@ -96,6 +97,10 @@ class Application extends BaseApplication
             // available as array through $request->getData()
             // https://book.cakephp.org/4/en/controllers/middleware.html#body-parser-middleware
             ->add(new BodyParserMiddleware())
+//            ->add(new EncryptedCookieMiddleware(
+//                ['CookieAuth'],
+//                Configure::read('Security.cookieKey')
+//            ))
 
             // Cross Site Request Forgery (CSRF) Protection Middleware
             // https://book.cakephp.org/4/en/security/csrf.html#cross-site-request-forgery-csrf-middleware
@@ -116,6 +121,13 @@ class Application extends BaseApplication
     public function services(ContainerInterface $container): void
     {
     }
+
+//    public function getAuthenticationService(){
+//        $service->loadAuthenticator('Authentication.Cookie',
+//            [ 'fields' => $fields,
+//                'cookie' => [ 'name' => 'CookieAuth', 'expires' => (new Time())->addDays(30), ],
+//                'loginUrl' => '/users/login', ]);
+//    }
 
     /**
      * Bootstrapping for CLI application.

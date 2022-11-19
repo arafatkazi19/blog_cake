@@ -75,9 +75,9 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => env('SECURITY_SALT'),
+        'salt' => env('SECURITY_SALT', 'string'),  //here my random string
+       // 'cookieKey' => env('SECURITY_COOKIE_KEY', 'string'),  //here my random string
     ],
-
     /*
      * Apply timestamps with the last modified time to static assets (js, css, images).
      * Will append a querystring parameter containing the time the file was modified.

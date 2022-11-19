@@ -4,14 +4,16 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
+
+
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
+<!--    <aside class="column">-->
+<!--        <div class="side-nav">-->
+<!--            <h4 class="heading">--><?//= __('Actions') ?><!--</h4>-->
+<!--            --><?php //echo $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+<!--        </div>-->
+<!--    </aside>-->
+    <div class="column-responsive column-100">
         <div class="users form content">
             <?= $this->Form->create($user) ?>
             <fieldset>

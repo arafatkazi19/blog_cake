@@ -19,7 +19,7 @@
             <fieldset>
                 <legend><?= __('Add Post') ?></legend>
                 <?php
-                    echo $this->Form->control('user_id', ['type' => 'hidden','value'=> 1]);
+                    echo $this->Form->control('user_id', ['type' => 'hidden','value'=> $user['id']]);
                     echo $this->Form->control('category_id', ['options' => $categories]);
                     echo $this->Form->control('title');
                     echo $this->Form->control('details');

@@ -24,13 +24,29 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">About</a>
                 </li>
             </ul>
+
+           <div>
+               <?php if (empty($user)){ ?>
+               <a href="/users/login" class="btn btn-primary">Login</a>
+               <a href="/users/add" class="btn btn-warning me-2">Register</a>
+                <?php } else{  ?>
+                   <div class="p-2">
+                       Hello <a href="#"> <?php echo $user['username'] ?></a>
+                   <a href="/users/logout">Logout</a>
+                   </div>
+              <?php } ?>
+
+           </div>
+
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
+
+
     </div>
 </nav>
